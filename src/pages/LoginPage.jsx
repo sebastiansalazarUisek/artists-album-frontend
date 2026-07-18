@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { login } from "../services/authService";
 
 function LoginPage() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
 
@@ -18,6 +20,7 @@ function LoginPage() {
                 "access_token",
                 data.access_token
             );
+            navigate("/artists");
 
 console.log("Token guardado correctamente");
 

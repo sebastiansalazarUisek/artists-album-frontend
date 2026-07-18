@@ -5,7 +5,6 @@ import ArtistCard from "../components/ArtistCard";
 
 function ArtistsPage() {
     const [artists, setArtists] = useState([]);
-
     useEffect(() => {
         const fetchArtists = async () => {
             const response = await getArtists();
