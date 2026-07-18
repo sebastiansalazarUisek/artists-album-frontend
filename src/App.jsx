@@ -1,7 +1,7 @@
-import ArtistsPage from "./pages/ArtistsPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-    return <ArtistsPage />;
+    return <LoginPage />;
 }
 
 export default App;
