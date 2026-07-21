@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import {
-    addArtist,
-    getArtistById,
-    updateArtist
-} from "../services/artistService";
+            addArtist,
+            getArtistById,
+            updateArtist
+        } from "../services/artistService";
 import { Box, Button,  TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 

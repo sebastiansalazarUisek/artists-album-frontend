@@ -1,7 +1,40 @@
-import {Card,CardContent,CardMedia,CardActions,Button,Typography} from "@mui/material";
+import {
+    Card,
+    CardContent,
+    CardMedia,
+    CardActions,
+    Button,
+    Typography
+} from "@mui/material";
+import { deleteAlbum } from "../services/albumService";
 
-export default function AlbumCard({album}) {
-    
+import { useNavigate } from "react-router-dom";
+
+export default function AlbumCard({ album }) {
+
+    const navigate = useNavigate();
+    const handleDelete = async () => {
+
+    const confirmDelete = window.confirm(
+        "¿Estás seguro de eliminar este álbum?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+
+        await deleteAlbum(album.id);
+
+        window.location.reload();
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+};
+
     return (
         <Card>
             <CardMedia
@@ -10,23 +43,45 @@ export default function AlbumCard({album}) {
                 image={album.artist.image}
                 alt={album.artist.name}
             />
+
             <CardContent>
                 <Typography variant="h5" component="div">
-                    Titulo: {album.title}
+                    Título: {album.title}
                 </Typography>
+
                 <Typography variant="body2" color="text.secondary">
                     Año: {album.release_year}
                 </Typography>
+
                 <Typography variant="body2" color="text.secondary">
                     Artista: {album.artist.name}
                 </Typography>
+
                 <Typography variant="body2" color="text.secondary">
-                    Numero de canciones: {album.number_of_tracks}
+                    Número de canciones: {album.number_of_tracks}
                 </Typography>
             </CardContent>
+
             <CardActions>
-                <Button size="small">Mas informacion</Button>
+                <Button
+                    size="small"
+                    variant="contained"
+                    onClick={() =>
+                        navigate(`/artists/${album.artist.id}/albums/${album.id}/edit`)
+                    }
+                >
+                    Editar
+                </Button>
+
+                <Button
+                    size="small"
+                    variant="outlined"
+                    color="error"
+                    onClick={handleDelete}
+                >
+                    Eliminar
+                </Button>
             </CardActions>
         </Card>
-    )
+    );
 }

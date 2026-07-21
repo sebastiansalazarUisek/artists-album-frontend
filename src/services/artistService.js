@@ -37,3 +37,7 @@ export const updateArtist = (id, artistData) => {
     return api.patch(`artists/${id}/`, formData);
 
 };
+
+export const deleteArtist = (id) => {
+    return api.delete(`artists/${id}/`);
+};
