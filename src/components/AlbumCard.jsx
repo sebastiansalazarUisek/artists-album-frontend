@@ -7,12 +7,13 @@ import {
     Typography
 } from "@mui/material";
 import { deleteAlbum } from "../services/albumService";
-
 import { useNavigate } from "react-router-dom";
+import "./AlbumCard.css"
 
 export default function AlbumCard({ album }) {
 
     const navigate = useNavigate();
+    const isAuthenticated = !!localStorage.getItem("access_token");
     const handleDelete = async () => {
 
     const confirmDelete = window.confirm(
@@ -36,15 +37,15 @@ export default function AlbumCard({ album }) {
 };
 
     return (
-        <Card>
+        <Card className="album-card">
             <CardMedia
+                className="album-card-image"
                 component="img"
-                height="250"
                 image={album.artist.image}
                 alt={album.artist.name}
             />
 
-            <CardContent>
+            <CardContent className="album-card-content">
                 <Typography variant="h5" component="div">
                     Título: {album.title}
                 </Typography>
@@ -62,10 +63,18 @@ export default function AlbumCard({ album }) {
                 </Typography>
             </CardContent>
 
-            <CardActions>
+            <CardActions className="album-card-actions">
+                {isAuthenticated && (
+                <>
                 <Button
                     size="small"
                     variant="contained"
+                    sx={{
+                    backgroundColor: "#1E293B",
+                    "&:hover": {
+                        backgroundColor: "#334155",
+                    },
+                }}
                     onClick={() =>
                         navigate(`/artists/${album.artist.id}/albums/${album.id}/edit`)
                     }
@@ -81,6 +90,8 @@ export default function AlbumCard({ album }) {
                 >
                     Eliminar
                 </Button>
+                </>
+                )}
             </CardActions>
         </Card>
     );

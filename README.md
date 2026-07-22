@@ -1,16 +1,105 @@
-# React + Vite
+# 🎵 Music Catalog - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="./HomePage1.png" width="900">
 
-Currently, two official plugins are available:
+Frontend de la aplicación **Music Catalog**, desarrollado con **React** y **Vite**. Esta aplicación consume una API REST para gestionar artistas y álbumes musicales, ofreciendo una interfaz moderna y responsive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Material UI (MUI)
+- React Router DOM
+- Axios
+- CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Funcionalidades
+
+### Visitante
+
+- Visualizar la lista de artistas.
+- Consultar los álbumes de cada artista.
+
+### Usuario autenticado
+
+- Iniciar sesión.
+- Cerrar sesión.
+- Crear artistas.
+- Editar artistas.
+- Eliminar artistas.
+- Crear álbumes.
+- Editar álbumes.
+- Eliminar álbumes.
+
+---
+
+## 🎨 Características de la interfaz
+
+- Diseño responsive.
+- Navbar de navegación.
+- Rutas protegidas.
+- Componentes reutilizables.
+- Formularios para artistas y álbumes.
+- Manejo de autenticación mediante token.
+- Consumo de API con Axios.
+- Interfaz desarrollada con Material UI.
+
+---
+
+## 📂 Estructura del proyecto
+
+```text
+src/
+│
+├── assets/
+├── components/
+├── pages/
+├── services/
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## ⚙️ Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar el proyecto:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 🔗 Backend
+
+Este proyecto consume una API REST desarrollada de forma independiente con Django REST Framework.
+
+---
+
+## 👨‍💻 Autor
+
+**Sebastián Salazar**

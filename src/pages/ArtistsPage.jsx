@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getArtists } from "../services/artistService";
 import ArtistCard from "../components/ArtistCard";
+import "./ArtistsPage.css";
 
 
 function ArtistsPage() {
@@ -18,24 +19,41 @@ function ArtistsPage() {
 
 
     }, []);
+    const isAuthenticated = !!localStorage.getItem("access_token");
 
     return (
-        <>
+    <div className="artists-page">
+
+        <div className="artists-header">
             <h1>Artistas</h1>
-            <Button
-                variant ="contained"
+
+            {isAuthenticated && (
+                <Button
+                variant="contained"
+                sx={{
+                    backgroundColor: "#1E293B",
+                    "&:hover": {
+                        backgroundColor: "#334155",
+                    },
+                }}
                 onClick={() => navigate("/artists/new")}
             >
                 Nuevo Artista
             </Button>
+            )}
+        </div>
+
+        <div className="artists-grid">
             {artists.map((artist) => (
-            <ArtistCard
-                key={artist.id}
-                artist={artist}
-            />
-        ))}
-        </>
-    );
+                <ArtistCard
+                    key={artist.id}
+                    artist={artist}
+                />
+            ))}
+        </div>
+
+    </div>
+);
 
 }
 

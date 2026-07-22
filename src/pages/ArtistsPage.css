@@ -1,0 +1,26 @@
+.artists-page{
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+.artists-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.artists-header h1{
+
+    font-size:2rem;
+    color:#263238;
+    font-weight:700;
+
+}
+
+.artists-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}

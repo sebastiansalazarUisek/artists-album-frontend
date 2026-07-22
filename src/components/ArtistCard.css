@@ -1,0 +1,62 @@
+.artist-card{
+
+    border-radius:14px !important;
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.artist-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15)!important;
+
+}
+
+.artist-card-image{
+    width:92%;
+    height:180px !important;
+    object-fit:cover;
+    margin:12px auto 0;
+    border-radius:12px;
+}
+
+.artist-card-content {
+    text-align: center;
+    min-height: 100px;
+}
+
+.artist-card-content h5{
+
+    color:#1f2937;
+
+}
+
+.artist-card-actions{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:16px !important;
+
+}
+
+.artist-card-actions button{
+
+    border-radius:10px !important;
+
+}
+
+@media (max-width:768px){
+
+    .artist-card-image{
+
+        height:180px !important;
+
+    }
+
+}

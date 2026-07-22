@@ -1,0 +1,27 @@
+.album-page{
+    width:90%;
+    max-width:1400px;
+    margin:40px auto;
+}
+
+.album-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.album-header h1{
+
+    font-size:2rem;
+    color:#263238;
+    font-weight:700;
+
+}
+
+.album-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,420px));
+    justify-content:center;
+    gap:24px;
+}

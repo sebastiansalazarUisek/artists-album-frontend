@@ -2,16 +2,27 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/authService";
 
+import {
+    Paper,
+    Typography,
+    TextField,
+    Button,
+    Box,
+} from "@mui/material";
+
+import "./LoginPage.css";
+
 function LoginPage() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
 
         event.preventDefault();
-
+        setError("");
         try {
 
             const data = await login(username, password);
@@ -22,48 +33,94 @@ function LoginPage() {
             );
             navigate("/artists");
 
-console.log("Token guardado correctamente");
+        console.log("Token guardado correctamente");
 
-        } catch (error) {
+                } catch (error) {
 
-            console.error(error);
+                    console.error(error);
+                    setPassword("");
+                    setError("Usuario o contraseña incorrectos.");
 
-        }
+                }
 
-    };
+            };
 
     return (
-        <>
-            <h1>Iniciar Sesión</h1>
 
-            <form onSubmit={handleLogin}>
+    <div className="login-container">
 
-                <input
-                    type="text"
-                    placeholder="Usuario"
+        <Paper
+            elevation={6}
+            className="login-card"
+        >
+
+            <Typography
+                variant="h4"
+                className="login-title"
+            >
+                🎵 Music Catalog
+            </Typography>
+
+            <Typography
+                variant="h6"
+                className="login-subtitle"
+            >
+                Iniciar Sesión
+            </Typography>
+
+            <Box
+                component="form"
+                onSubmit={handleLogin}
+                className="login-form"
+            >
+
+                <TextField
+                    label="Usuario"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    fullWidth
                 />
 
-                <br /><br />
-
-                <input
+                <TextField
+                    label="Contraseña"
                     type="password"
-                    placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    fullWidth
                 />
 
-                <br /><br />
+                {error && (
 
-                <button type="submit">
-                    Ingresar
-                </button>
+                    <Typography
+                        color="error"
+                        className="login-error"
+                    >
+                        {error}
+                    </Typography>
 
-            </form>
+                )}
 
-        </>
-    );
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                        backgroundColor: "#1E293B",
+                        "&:hover": {
+                            backgroundColor: "#334155",
+                        },
+                    }}
+                    fullWidth
+                >
+                    Iniciar sesión
+                </Button>
+
+            </Box>
+
+        </Paper>
+
+    </div>
+
+);
 
 }
 

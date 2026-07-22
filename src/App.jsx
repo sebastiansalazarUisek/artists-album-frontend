@@ -5,6 +5,7 @@ import ArtistPage from "./pages/ArtistsPage"
 import AlbumPage from "./pages/AlbumPage";
 import ArtistForm from "./components/ArtistForm";
 import AlbumForm from "./components/AlbumForm"
+import Navbar from "./components/Navbar"
 
 
 
@@ -12,8 +13,9 @@ function App() {
     return (
         <>
             <BrowserRouter>
+                <Navbar />
                 <Routes>
-                    <Route path="/" element={<Navigate to="/login" replace />} />
+                    <Route path="/" element={<Navigate to="/artists" replace />} />
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route 
                         path="/albums" 
@@ -22,11 +24,10 @@ function App() {
                                 <AlbumPage/>
                             </ProtectedRoute>
                         }/>
-                    <Route path="/artists" element={
-                            <ProtectedRoute>
-                                <ArtistPage/>
-                            </ProtectedRoute>
-                        }/>
+                    <Route
+                        path="/artists"
+                        element={<ArtistPage />}
+                    />
                     <Route path="/artists/new" element={
                             <ProtectedRoute>
                                 <ArtistForm/>
@@ -42,11 +43,7 @@ function App() {
                     />
                     <Route
                         path="/artists/:id/albums"
-                        element={
-                            <ProtectedRoute>
-                                <AlbumPage />
-                            </ProtectedRoute>
-                        }
+                        element={<AlbumPage />}
                     />
                     <Route
                         path="/artists/:artistId/albums/new"

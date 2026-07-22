@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 
 import { useState, useEffect } from "react";
+import "./AlbumForm.css"
 
 function AlbumForm() {
 
@@ -93,56 +94,66 @@ function AlbumForm() {
 };
 
     return (
-        <>
-            <Typography variant="h4" gutterBottom>
-                {albumId ? "Editar Álbum" : "Nuevo Álbum"}
-            </Typography>
+    <div className="album-form-container">
 
-            <Box
-                component="form"
-                className="album-form"
-                onSubmit={handleSubmit}
+        <Typography
+            variant="h4"
+            className="album-form-title"
+            gutterBottom
+        >
+            {albumId ? "Editar Álbum" : "Nuevo Álbum"}
+        </Typography>
+
+        <Box
+            component="form"
+            className="album-form"
+            onSubmit={handleSubmit}
+        >
+
+            <TextField
+                label="Título"
+                name="title"
+                value={albumData.title}
+                onChange={handleChange}
+                fullWidth
+            />
+
+            <TextField
+                label="Año de lanzamiento"
+                name="release_year"
+                type="number"
+                value={albumData.release_year}
+                onChange={handleChange}
+                fullWidth
+            />
+
+            <TextField
+                label="Número de canciones"
+                name="number_of_tracks"
+                type="number"
+                value={albumData.number_of_tracks}
+                onChange={handleChange}
+                fullWidth
+            />
+
+            <Button
+                variant="contained"
+                sx={{
+                backgroundColor: "#1E293B",
+                "&:hover": {
+                    backgroundColor: "#334155",
+                },
+            }}
+                type="submit"
+                fullWidth
             >
+                {albumId ? "Actualizar Álbum" : "Guardar Álbum"}
+            </Button>
 
-                <TextField
-                    label="Título"
-                    name="title"
-                    value={albumData.title}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
+        </Box>
 
-                <TextField
-                    label="Año de lanzamiento"
-                    name="release_year"
-                    type="number"
-                    value={albumData.release_year}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Número de canciones"
-                    name="number_of_tracks"
-                    type="number"
-                    value={albumData.number_of_tracks}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <Button
-                    variant="contained"
-                    type="submit"
-                >
-                    {albumId ? "Actualizar Álbum" : "Guardar Álbum"}
-                </Button>
-
-            </Box>
-        </>
-    );
+    </div>
+);
 }
 
 export default AlbumForm;
