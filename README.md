@@ -71,7 +71,7 @@ src/
 Clonar el repositorio:
 
 ```bash
-git clone <https://github.com/sebastiansalazarUisek/artists-album-frontend.git>
+git clone https://github.com/sebastiansalazarUisek/artists-album-frontend.git
 ```
 
 Instalar dependencias:
@@ -85,14 +85,6 @@ Ejecutar el proyecto:
 ```bash
 npm run dev
 ```
-
-La aplicación estará disponible en:
-
-```text
-http://localhost:5173
-```
-
----
 
 ## 🔗 Backend
 
