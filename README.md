@@ -71,7 +71,7 @@ src/
 Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/sebastiansalazarUisek/artists-album-frontend.git>
 ```
 
 Instalar dependencias:
